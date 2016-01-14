@@ -5,8 +5,8 @@ set :application, 'coder_cola'
 set :repo_url, 'git@github.com:ber8749/coder_cola.git'
 set :deploy_user, 'deploy'
 
-set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.2.3'
+#set :rbenv_type, :user # or :system, depends on your rbenv setup
+#set :rbenv_ruby, '2.2.3'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -39,7 +39,6 @@ set :linked_files, %w{config/database.yml config/secrets.yml}
 # set :keep_releases, 5
 
 namespace :deploy do
-
   after  :publishing, :'passenger:restart'
   before :deploy, 'deploy:check_revision'
 end
