@@ -2,13 +2,14 @@
 lock '3.4.0'
 
 set :application, 'coder_cola'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, 'git@github.com:ber8749/coder_cola.git'
+set :deploy_user, 'deploy'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, "/var/www/#{fetch(:application)}/#{fetch(:stage)}"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -23,7 +24,7 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
@@ -36,13 +37,13 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+  after  :publishing, :restart
+  before :deploy, 'deploy:check_revision'
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-
 end
