@@ -37,13 +37,6 @@ set :linked_files, %w{config/database.yml config/secrets.yml}
 
 namespace :deploy do
 
-  after  :publishing, :restart
+  after  :publishing, :'passenger:restart'
   before :deploy, 'deploy:check_revision'
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute 'passenger-config restart-app /var/www/coder_cola/'
-    end
-  end
 end
