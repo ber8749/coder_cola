@@ -24,6 +24,6 @@ module CoderCola
     config.active_record.raise_in_transactional_callbacks = true
 
     # Add fonts to asset pipeline
-    config.assets.paths += %W("#{Rails.root}/vendor/assets/fonts")
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
   end
 end
