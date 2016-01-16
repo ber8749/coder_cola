@@ -5,15 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby 2.2.3
 
 * System dependencies
 
 * Configuration
 
-* Database creation
-
-* Database initialization
+* Database creation and initialization
+<pre>bundle exec rake db:setup</re>
 
 * How to run the test suite
 
@@ -21,8 +20,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Start the Rails server
+<pre>bundle exec rails s</pre>
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Open http://localhost:3000/ in your browser to view the app
