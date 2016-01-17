@@ -1,14 +1,26 @@
 <div class="row">
-  <div class="col-md-2 col-md-offset-4">
-    <%= image_tag('coder-cola.jpg', class: 'img-responsive pull-right') %>
+  <div class="col-md-1 col-md-offset-4">
+    <div class="products-sold">
+      <h2 class="steelfish">Cases Sold: <%= line_items_quantity_total %></h2>
+    </div>
+
+    <div class="orders-shipped">
+      <h2 class="steelfish">Cases Shipped: <%= orders_shipped %></h2>
+    </div>
   </div>
   <div class="col-md-2">
-    <h2>Delicious</h2>
-    <h2>Refreshing</h2>
-    <h2 class="loki-cola">Coder Cola</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <%= image_tag('coder-cola.jpg', class: 'img-responsive') %>
+  </div>
+  <div class="col-md-2">
+    <h1 class="steelfish">
+      Refreshing...<br><br>
+      Delicious...<br><br>
+      <span class="coder-cola">1oder Cola</span>
+    </h1>
+    <p><strong class="cola-red">Coder Cola</strong>, the greatest beverage known to mankind is finally available to you!
+      Just fill out the form below to sign up and have <strong class="cola-red">Coder Cola</strong> delivered right to your
+      doorstep!</p>
+
+      <%= render partial: user_view %>
   </div>
 </div>

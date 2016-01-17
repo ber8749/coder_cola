@@ -1,25 +1,39 @@
-/* attempt to fix asset path issue */
-@font-face {
-  font-family: 'Glyphicons Halflings';
+@import 'variables';
 
-  src: url(asset_path('glyphicons-halflings-regular.eot'));
-  src: url(asset_path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'),
-  url(asset_path('glyphicons-halflings-regular.woff2')) format('woff2'),
-  url(asset_path('glyphicons-halflings-regular.woff')) format('woff'),
-  url(asset_path('glyphicons-halflings-regular.ttf')) format('truetype'),
-  url(asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
-}
-@font-face {
-  font-family: 'Loki Cola';
-  src: url(asset_path('LOKICOLA.TTF')) format('truetype');
-}
-.loki-cola {
-  font-family: 'Loki Cola';
+html {
+  font: 1em normal Verdana;
 }
 header {
-  background:#F40009;
-  background: linear-gradient(#F40009, #970009);
+  background: $cola-red;
+  background: linear-gradient($cola-red, #970009);
   box-shadow: 0px 3px 3px #888888;
   color: white;
   margin-bottom: 10px;
+
+  .logo {
+    color: white;
+    font-family: 'Loki Cola';
+    font-size: 4em;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+.coder-cola {
+  color: $cola-red;
+  font-family: 'Loki Cola';
+}
+.cola-red {
+  color: $cola-red;
+}
+.cola-red-bg {
+  background: linear-gradient($cola-red, #970009);
+}
+.expander {
+  cursor: pointer;
+}
+.expanded {
+  display: none;
 }
