@@ -1,7 +1,7 @@
 var pusher = new Pusher('031ccc1a86f0dda81d14', {
     encrypted: true
 });
-var channel = pusher.subscribe('coder_cola');
+var channel = pusher.subscribe('coder_cola_<%= Rails.env %>');
 channel.bind('order_created', function(data) {
     console.log(data);
     // update cases sold

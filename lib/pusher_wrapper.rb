@@ -3,7 +3,7 @@ module PusherWrapper
     (1..5).each do |i|
       sleep(5)
       running_total = (i * (i + 1)) / 2
-      PusherWrapper.push('coder_cola', 'order_created',{
+      PusherWrapper.push("coder_cola_#{Rails.env}", 'order_created',{
           first_name: "User#{i}",
           city: "City#{i}",
           country: "Country#{i}",
