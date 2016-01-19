@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :verify_admin
 
   # GET /line_items
   # GET /line_items.json

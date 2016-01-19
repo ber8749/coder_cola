@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
     def set_orders
       @orders ||= Order.limit(7).order(created_at: :desc)
     end
+
+    def verify_admin
+      if !current_user || !current_user.is_admin?
+        redirect_to root_path, flash: { error: "You don't have permission to view this page!" }
+      end
+    end
 end

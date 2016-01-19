@@ -7,3 +7,7 @@ one:
 two:
   user_id: 1
   status: pending
+
+three:
+  user: admin
+  status: shipped

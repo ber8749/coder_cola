@@ -19,3 +19,13 @@ two:
   user_id: 1
   country: MyString
   kind: billing
+
+three:
+  line1: MyString
+  line2: MyString
+  city: MyString
+  state: MyString
+  postal_code: MyString
+  user: admin
+  country: MyString
+  kind: shipping

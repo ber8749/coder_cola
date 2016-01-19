@@ -2,6 +2,7 @@ require 'pusher_wrapper'
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:push_example]
+  before_action :verify_admin, except: [:create, :push_example]
 
   # GET /orders
   # GET /orders.json

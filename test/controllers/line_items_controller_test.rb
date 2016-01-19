@@ -4,7 +4,7 @@ class LineItemsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    sign_in users(:one)
+    sign_in users(:admin)
     @line_item = line_items(:one)
   end
 
