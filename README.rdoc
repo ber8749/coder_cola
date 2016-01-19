@@ -1,26 +1,56 @@
-== README
+== Coder Cola
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Coder Cola is a simple Rails application built to mimic a single page e-commerce store. It implements
+Pusher[http://www.pusher.com] for real time ordering updates, Bootstrap[http://getbootstrap.com/] for responsive design
+and Devise[https://github.com/plataformatec/devise] for user authentication.
 
-Things you may want to cover:
+=== Installation
 
-* Ruby 2.2.3
+These instructions operate on the assumption that you have both Ruby 2.2.x and MySQL installed.
 
-* System dependencies
+1. Navigate to the coder_cola directory
 
-* Configuration
+    cd coder_cola
 
-* Database creation and initialization
-<pre>bundle exec rake db:setup</re>
+2. Install gems
 
-* How to run the test suite
+    bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Create and seed the database
 
-* Deployment instructions
+    rake db:setup
 
-* Start the Rails server
-<pre>bundle exec rails s</pre>
+4. Run the application
 
-* Open http://localhost:3000/ in your browser to view the app
+    rails server
+
+* If for whatever reason you are not able to get the app running locally, please test it out at
+  http://codercola.allsurfspots.com
+
+=== Usage
+
+* The site is fully responsive, so feel free to open it up on your desktop, tablet or phone
+
+* Feel free to register as many users as you want. Clicking on the "Your Orders" link will display the current number
+  of orders. Clicking on "New Order" will allow you to submit a new order.
+
+* There are 3 ways to invoke Pusher event(s):
+
+  1. Register a user, and then submit a order
+  2. Click on the "Pusher Create Example Orders" link at the bottom of the screen
+  3. Manually invoke the pusher rake task:
+
+      rake pusher:order:push_examples
+
+  * Only method 1 actually corresponds with the creation of an order. Methods 2 and 3 simply create 5 example
+    events, which will not correspond to the actual number of orders in the system. Refreshing the page will clear
+    all example events created in methods 2 and 3.
+
+=== Notes, Bugs, etc
+
+* Due to time constraints and my own inexperience with Minitest, the testing coverage is woefully inadequate. Given more
+  time I believe this could be greatly improved.
+
+* There is one bug that I was not able to resolve before the deadline. Clicking on the "CoderCola" logo in the header
+  opens up the home page, and at the same time seems to break the javascript. I have a strong suspicion that this may be
+  caused by Turbolinks
