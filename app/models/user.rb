@@ -12,7 +12,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def full_name
+    [first_name,last_name].join(' ')
+  end
+
   def is_admin?
     role == 'admin'
+  end
+
+  def shipping_address
+    addresses.shipping.first
   end
 end

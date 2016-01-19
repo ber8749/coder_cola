@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AddressTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'valid address' do
+    assert addresses(:one).valid?
+  end
 end

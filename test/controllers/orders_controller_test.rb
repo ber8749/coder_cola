@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    sign_in users(:one)
     @order = orders(:one)
+    @order.line_items.new
+    @products = Product.all
   end
 
   test "should get index" do
@@ -21,7 +26,7 @@ class OrdersControllerTest < ActionController::TestCase
       post :create, order: { status: @order.status, user_id: @order.user_id }
     end
 
-    assert_redirected_to order_path(assigns(:order))
+    assert_redirected_to home_pages_path
   end
 
   test "should show order" do

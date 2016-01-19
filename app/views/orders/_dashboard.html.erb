@@ -1,0 +1,23 @@
+<div>
+  <h4 class="expander cola-red"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> Your Orders</h4>
+  <div class="expanded">
+    <% if current_user.orders.any? %>
+        <table class="table table-stripped">
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Description</th>
+          </tr>
+          <%= render partial: 'orders/order', collection: current_user.orders %>
+        </table>
+    <% else %>
+        <p>You don't have any orders.</p>
+    <% end %>
+  </div>
+</div>
+<div>
+  <h4 class="expander cola-red"><span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> New Order</h4>
+  <div class="expanded">
+    <%= render partial: 'orders/form' %>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 @import 'variables';
 
 html {
+  background: $cola-red;
   font: 1em normal Verdana;
 }
 header {
@@ -21,6 +22,30 @@ header {
     }
   }
 }
+footer {
+  background: $cola-red;
+  padding: 5px;
+
+  a,a:hover {
+    color: white;
+  }
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  color: red;
+  input {
+    border: 1px solid red;
+  }
+}
+
 .coder-cola {
   color: $cola-red;
   font-family: 'Loki Cola';

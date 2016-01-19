@@ -8,6 +8,7 @@
   <title>Coder Cola</title>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://js.pusher.com/3.0/pusher.min.js' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
@@ -22,13 +23,14 @@
 <div class="container-fluid">
   <header class="row text-center">
     <div class="col-lg-12">
-      <%= link_to '1oder Cola', root_path, class: 'logo' %>
+      <%= link_to '1oder Cola', home_pages_path, class: 'logo' %>
     </div>
   </header>
   <% flash_messages %>
   <%= yield %>
   <footer class="row text-center">
-    <%= login_or_logout_link %>
+    <%= login_or_logout_link %> |
+    <%= link_to 'Pusher Create Example Orders', push_example_orders_path, remote: true %>
   </footer>
 </div>
 

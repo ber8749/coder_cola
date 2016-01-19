@@ -1,25 +1,30 @@
 <div class="row">
-  <div class="col-md-1 col-md-offset-4">
+  <div class="col-lg-1 col-lg-offset-4 col-md-2 col-md-offset-3 col-sm-3 col-sm-offset-2 hidden-xs">
     <div class="products-sold">
-      <h2 class="steelfish">Cases Sold: <%= line_items_quantity_total %></h2>
+      <h2 class="steelfish">Sold: <span><%= @coder_cola.sold %></span></h2>
     </div>
 
     <div class="orders-shipped">
-      <h2 class="steelfish">Cases Shipped: <%= orders_shipped %></h2>
+      <h2 class="steelfish">Shipped: <span><%= @coder_cola.shipped %></span></h2>
+    </div>
+
+    <div class="orders-feed">
+      <h2 class="steelfish">Newest Orders</h2>
+      <%= render partial: 'orders/feed_order', collection: @orders %>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-lg-2 col-md-3 col-sm-3 hidden-xs">
     <%= image_tag('coder-cola.jpg', class: 'img-responsive') %>
   </div>
-  <div class="col-md-2">
+  <div class="col-lg-2 col-md-3 col-sm-3">
     <h1 class="steelfish">
       Refreshing...<br><br>
       Delicious...<br><br>
       <span class="coder-cola">1oder Cola</span>
     </h1>
     <p><strong class="cola-red">Coder Cola</strong>, the greatest beverage known to mankind is finally available to you!
-      Just fill out the form below to sign up and have <strong class="cola-red">Coder Cola</strong> delivered right to your
-      doorstep!</p>
+      Just fill out the form below to sign up and have <strong class="cola-red">Coder Cola</strong> delivered right to
+      your doorstep!</p>
 
       <%= render partial: user_view %>
   </div>

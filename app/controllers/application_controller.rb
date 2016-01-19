@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :role, :email, :password, :password_confirmation) }
     end
+
+    def set_coder_cola
+      @coder_cola ||= Product.find_by_name('Coder Cola Case')
+    end
+
+    def set_orders
+      @orders ||= Order.limit(7).order(created_at: :desc)
+    end
 end

@@ -1,17 +1,46 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_for(@user, url: registration_path(:user)) do |f| %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <%= render partial: 'shared/error_explanation', locals: { object: @user } %>
+
+    <div class="form-group">
+      <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name' %>
     </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+    </div>
+    <div class="form-group">
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Email', autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Password', autocomplete: 'off' %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password', autocomplete: 'off' %>
+    </div>
+    <%= f.hidden_field :role, value: 'customer' %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.fields_for :addresses do |address_fields| %>
+        <div class="form-group">
+          <%= address_fields.text_field :line1, class: 'form-control', placeholder: 'Address Line 1' %>
+        </div>
+        <div class="form-group">
+          <%= address_fields.text_field :line2, class: 'form-control', placeholder: 'Address Line 2' %>
+        </div>
+        <div class="form-group">
+          <%= address_fields.text_field :city, class: 'form-control', placeholder: 'City' %>
+        </div>
+        <div class="form-group">
+          <%= address_fields.text_field :state, class: 'form-control', placeholder: 'State' %>
+        </div>
+        <div class="form-group">
+          <%= address_fields.text_field :country, class: 'form-control', placeholder: 'Country' %>
+        </div>
+        <div class="form-group">
+          <%= address_fields.text_field :postal_code, class: 'form-control', placeholder: 'Postal Code' %>
+        </div>
+        <%= address_fields.hidden_field :kind, value: Address::SHIPPING %>
+    <% end %>
+    <div class="form-group">
+      <%= f.submit 'Register', class: 'btn btn-default' %>
+    </div>
 <% end %>

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= order.id %></td>
+  <td><%= order.status %></td>
+  <td>
+    <% order.line_items.each do |line_item| %>
+      <%= line_item.product.name %>: <%= line_item.quantity %><br>
+    <% end %>
+  </td>
+</tr>

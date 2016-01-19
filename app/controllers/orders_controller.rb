@@ -1,6 +1,7 @@
+require 'pusher_wrapper'
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:push_example]
 
   # GET /orders
   # GET /orders.json
@@ -16,19 +17,22 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @products = Product.all
   end
 
   # GET /orders/1/edit
   def edit
+    @products = Product.all
   end
 
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params.merge(user_id: current_user.id, status: Order::PENDING))
+    @order = Order.new(order_params.merge(user_id: current_user.id, status: Order::SHIPPED))
 
     respond_to do |format|
       if @order.save
+        push_order_created
         format.html { redirect_to home_pages_path, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -62,6 +66,11 @@ class OrdersController < ApplicationController
     end
   end
 
+  def push_example
+    set_coder_cola
+    PusherWrapper.push_order_examples(@coder_cola.sold, @coder_cola.shipped)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -71,5 +80,17 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:user_id, :status, line_items_attributes: [:product_id, :quantity])
+    end
+
+    def push_order_created
+      set_coder_cola
+      Pusher.trigger('coder_cola', 'order_created', {
+          first_name: @order.user.first_name,
+          city: @order.shipping_address.city,
+          country: @order.shipping_address.country,
+          quantity: @order.total_quantity,
+          sold: @coder_cola.sold,
+          shipped: @coder_cola.shipped
+      })
     end
 end

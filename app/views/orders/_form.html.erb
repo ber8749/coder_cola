@@ -1,25 +1,16 @@
 <%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+    <%= render partial: 'shared/error_explanation', locals: { object: @order } %>
 
-      <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% @products.each do |product| %>
+        <%= f.fields_for :line_items do |line_item_fields| %>
+            <div class="form-group">
+              <%= label_tag :name, "#{product.name}: #{number_to_currency(product.price)}" %>
+              <%= line_item_fields.number_field :quantity, class: 'form-control' %>
+            </div>
+            <%= line_item_fields.hidden_field :product_id, value: product.id %>
+        <% end %>
+    <% end %>
+    <div class="form-group">
+      <%= f.submit 'Submit Order', class: 'btn btn-default' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class AddressesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    sign_in users(:one)
     @address = addresses(:one)
   end
 
@@ -18,7 +21,7 @@ class AddressesControllerTest < ActionController::TestCase
 
   test "should create address" do
     assert_difference('Address.count') do
-      post :create, address: { city: @address.city, line1: @address.line1, line2: @address.line2, postal_code: @address.postal_code, state: @address.state, user_id: @address.user_id }
+      post :create, address: { city: @address.city, line1: @address.line1, line2: @address.line2, postal_code: @address.postal_code, state: @address.state, country: @address.country, kind: @address.kind, user_id: @address.user_id }
     end
 
     assert_redirected_to address_path(assigns(:address))
@@ -35,7 +38,7 @@ class AddressesControllerTest < ActionController::TestCase
   end
 
   test "should update address" do
-    patch :update, id: @address, address: { city: @address.city, line1: @address.line1, line2: @address.line2, postal_code: @address.postal_code, state: @address.state, user_id: @address.user_id }
+    patch :update, id: @address, address: { city: @address.city, line1: @address.line1, line2: @address.line2, postal_code: @address.postal_code, state: @address.state, country: @address.country, kind: @address.kind, user_id: @address.user_id }
     assert_redirected_to address_path(assigns(:address))
   end
 

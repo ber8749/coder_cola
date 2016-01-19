@@ -2,10 +2,15 @@
 
 one:
   name: MyString
-  description: MyText
-  price: 1.5
+  description: MyString
+  price: 1
 
 two:
   name: MyString
-  description: MyText
-  price: 1.5
+  description: MyString
+  price: 2
+
+coder_cola:
+  name: Coder Cola Case
+  description: 24 cans of Coder Cola
+  price: 14.99

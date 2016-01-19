@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    sign_in users(:one)
     @product = products(:one)
   end
 

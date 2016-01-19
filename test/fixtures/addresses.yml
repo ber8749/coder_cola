@@ -7,6 +7,8 @@ one:
   state: MyString
   postal_code: MyString
   user_id: 1
+  country: MyString
+  kind: shipping
 
 two:
   line1: MyString
@@ -15,3 +17,5 @@ two:
   state: MyString
   postal_code: MyString
   user_id: 1
+  country: MyString
+  kind: billing

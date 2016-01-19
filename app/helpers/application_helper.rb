@@ -22,19 +22,9 @@ module ApplicationHelper
 
   def login_or_logout_link
     if user_signed_in?
-      link_to('Logout', destroy_user_session_path, :method => :delete)
+      link_to('Logout', destroy_user_session_path, method: :delete)
     else
       link_to('Login', new_user_session_path)
     end
-  end
-
-  # necessary devise helper for user registration
-  def resource_name
-    :user
-  end
-
-  # necessary devise helper for user registration
-  def resource
-    @resource ||= User.new
   end
 end

@@ -1,0 +1,15 @@
+var pusher = new Pusher('031ccc1a86f0dda81d14', {
+    encrypted: true
+});
+var channel = pusher.subscribe('coder_cola');
+channel.bind('order_created', function(data) {
+    console.log(data);
+    // update cases sold
+    $('.products-sold h2 span').html(data.sold);
+    // update cases shipped
+    $('.orders-shipped h2 span').html(data.shipped);
+    // add order to feed
+    feedOrder = data.first_name + ' from ' + data.city + ', ' + data.country + '<br/>' +
+                'Ordered ' + data.quantity + ' cases <hr>';
+    $('.orders-feed h2').after(feedOrder);
+});

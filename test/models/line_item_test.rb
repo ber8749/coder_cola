@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class LineItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'valid line item' do
+    assert line_items(:one).valid?
+  end
 end

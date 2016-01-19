@@ -26,6 +26,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
+      set_coder_cola
+      set_orders
       render template: 'pages/home'
     end
   end
@@ -82,6 +84,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_params
     [:first_name, :last_name, :role, :email, :password, :password_confirmation,
-     addresses_attributes: [:line1, :line2, :city, :state, :postal_code]]
+     addresses_attributes: [:line1, :line2, :city, :state, :country, :postal_code, :kind]]
   end
 end
