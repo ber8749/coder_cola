@@ -50,7 +50,3 @@ These instructions operate on the assumption that you have both Ruby 2.2.x and M
 
 * Due to time constraints and my own inexperience with Minitest, the testing coverage is woefully inadequate. Given more
   time I believe this could be greatly improved.
-
-* There is one bug that I was not able to resolve before the deadline. Clicking on the "CoderCola" logo in the header
-  opens up the home page, and at the same time seems to break the javascript. I have a strong suspicion that this may be
-  caused by Turbolinks
