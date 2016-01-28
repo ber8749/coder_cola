@@ -1,16 +1,12 @@
 module PusherWrapper
   def self.push_order_examples(current_sold, current_shipped)
     (1..5).each do |i|
-      sleep(5)
       running_total = (i * (i + 1)) / 2
-      PusherWrapper.push("coder_cola_#{Rails.env}", 'order_created',{
-          first_name: "User#{i}",
-          city: "City#{i}",
-          country: "Country#{i}",
-          quantity: i,
-          sold: current_sold + running_total,
-          shipped: current_shipped + running_total
-      })
+      sold = current_sold + running_total
+      shipped = current_shipped + running_total
+      attrs = { first_name: "User#{i}", city: "City#{i}", country: "Country#{i}", quantity: i, sold: sold, shipped: shipped }
+      PusherWrapper.push("coder_cola_#{Rails.env}", 'order_created', attrs)
+      sleep(5)
     end
   end
 

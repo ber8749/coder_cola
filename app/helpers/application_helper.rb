@@ -1,6 +1,5 @@
 module ApplicationHelper
-
-  FLASH_ALERT_CLASSES = { success: 'success', notice: 'info', alert: 'warning', error: 'danger',  }
+  FLASH_ALERT_CLASSES = { success: 'success', notice: 'info', alert: 'warning', error: 'danger' }.freeze
 
   def body_classes
     "#{action_name} #{controller_name}"
@@ -11,7 +10,7 @@ module ApplicationHelper
   end
 
   def flash_messages
-    flash.each do |key,value|
+    flash.each do |key, value|
       concat(content_tag(:div, value, class: flash_message_class(key)))
     end
   end

@@ -1,7 +1,7 @@
 class Address < ActiveRecord::Base
-  SHIPPING = 'shipping'
-  BILLING = 'billing'
-  KINDS = [SHIPPING,BILLING]
+  SHIPPING = 'shipping'.freeze
+  BILLING = 'billing'.freeze
+  KINDS = [SHIPPING, BILLING].freeze
 
   belongs_to :user
 

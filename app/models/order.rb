@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
-  PENDING = 'pending'
-  SHIPPED = 'shipped'
-  STATUSES = [PENDING,SHIPPED]
+  PENDING = 'pending'.freeze
+  SHIPPED = 'shipped'.freeze
+  STATUSES = [PENDING, SHIPPED].freeze
 
   belongs_to :user
   has_many :addresses, through: :user

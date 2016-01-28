@@ -73,25 +73,26 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def order_params
-      params.require(:order).permit(:user_id, :status, line_items_attributes: [:product_id, :quantity])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
-    def push_order_created
-      set_coder_cola
-      Pusher.trigger("coder_cola_#{Rails.env}", 'order_created', {
-          first_name: @order.user.first_name,
-          city: @order.shipping_address.city,
-          country: @order.shipping_address.country,
-          quantity: @order.total_quantity,
-          sold: @coder_cola.sold,
-          shipped: @coder_cola.shipped
-      })
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def order_params
+    params.require(:order).permit(:user_id, :status, line_items_attributes: [:product_id, :quantity])
+  end
+
+  def push_order_created
+    set_coder_cola
+    Pusher.trigger("coder_cola_#{Rails.env}", 'order_created',
+                    first_name: @order.user.first_name,
+                    city: @order.shipping_address.city,
+                    country: @order.shipping_address.country,
+                    quantity: @order.total_quantity,
+                    sold: @coder_cola.sold,
+                    shipped: @coder_cola.shipped
+                  )
+  end
 end

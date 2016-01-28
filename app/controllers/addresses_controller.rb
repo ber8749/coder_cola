@@ -64,13 +64,14 @@ class AddressesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_address
-      @address = Address.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def address_params
-      params.require(:address).permit(:line1, :line2, :city, :state, :country, :postal_code, :kind, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_address
+    @address = Address.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def address_params
+    params.require(:address).permit(:line1, :line2, :city, :state, :country, :postal_code, :kind, :user_id)
+  end
 end

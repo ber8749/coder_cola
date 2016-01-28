@@ -8,7 +8,7 @@ class PagesControllerTest < ActionController::TestCase
     @user.addresses.new
   end
 
-  test "should get home" do
+  test 'should get home' do
     get :home
     assert_response :success
   end

@@ -10,7 +10,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'is admin?' do
-    assert users(:admin).is_admin?, true
+    assert users(:admin).admin?, true
   end
 
   test 'shipping address' do

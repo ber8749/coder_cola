@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def full_name
-    [first_name,last_name].join(' ')
+    [first_name, last_name].join(' ')
   end
 
-  def is_admin?
+  def admin?
     role == 'admin'
   end
 

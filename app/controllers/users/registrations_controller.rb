@@ -60,9 +60,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up) { |u|
+    devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(user_params)
-    }
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -72,7 +72,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    #super(resource)
+    # super(resource)
     root_path
   end
 
