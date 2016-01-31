@@ -86,7 +86,7 @@ class OrdersController < ApplicationController
 
   def push_order_created
     set_coder_cola
-    Pusher.trigger("coder_cola_#{Rails.env}", 'order_created',
+    Pusher.trigger(PusherWrapper.channel, 'order_created',
                     first_name: @order.user.first_name,
                     city: @order.shipping_address.city,
                     country: @order.shipping_address.country,

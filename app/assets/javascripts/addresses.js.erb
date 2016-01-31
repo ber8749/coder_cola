@@ -1,0 +1,24 @@
+$(document).ready(function() {
+    var addressCountry = $('.address-country');
+    var addressState   = $('.address-state');
+
+    // update states on country change
+    if(addressCountry.length > 0) {
+      addressCountry.change(function() {
+        var states = countryStates($(this).val());
+        addressState.empty();
+        $.each(states, function(index, value) {
+          console.log(value);
+          addressState.append('<option>' + value + '</option>');
+        });
+      });
+    }
+});
+function countryStates(country) {
+  var countries = <%= COUNTRIES.to_json %>;
+  var states = [];
+  for(var s in countries[country]) {
+    states.push(countries[country][s]['name']);
+  }
+  return states;
+}
