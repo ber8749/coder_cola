@@ -4,8 +4,8 @@ class ProductsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    sign_in users(:admin)
-    @product = products(:one)
+    sign_in users(:lou)
+    @product = products(:coder_cola)
   end
 
   test 'should get index' do

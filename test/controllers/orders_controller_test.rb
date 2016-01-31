@@ -4,8 +4,8 @@ class OrdersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    sign_in users(:admin)
-    @order = orders(:one)
+    sign_in users(:david)
+    @order = orders(:davids)
     @order.line_items.new
     @products = Product.all
   end

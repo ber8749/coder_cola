@@ -1,11 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  order: one
-  product: one
+  order: davids
+  product: coder_cola
   quantity: 1
 
 two:
-  order: two
-  product: two
+  order: davids
+  product: coder_cola
   quantity: 1
+
+three:
+  order: iggys
+  product: coder_cola
+  quantity: 3
+
+four:
+  order: lous
+  product: coder_cola
+  quantity: 3

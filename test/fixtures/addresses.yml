@@ -1,31 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  line1: MyString
-  line2: MyString
-  city: MyString
-  state: MyString
-  postal_code: MyString
-  user_id: 1
-  country: MyString
+davids_shipping:
+  user: david
+  line1: 68 South Broadway
+  line2: Apartment Z
+  city: New York
+  state: New York
+  postal_code: 101011
+  country: United States of America
   kind: shipping
 
-two:
-  line1: MyString
-  line2: MyString
-  city: MyString
-  state: MyString
-  postal_code: MyString
-  user_id: 1
-  country: MyString
-  kind: billing
+iggys_shipping:
+  user: iggy
+  line1: 1419 Woodward Ave
+  line2: ''
+  city: Detroit
+  state: Michigan
+  postal_code: 48226
+  country: United States of America
+  kind: shipping
 
-three:
-  line1: MyString
-  line2: MyString
-  city: MyString
-  state: MyString
-  postal_code: MyString
-  user: admin
-  country: MyString
+lous_shipping:
+  user: lou
+  line1: 315 Bowery Street
+  line2: ''
+  city: New York
+  state: New York
+  postal_code: 10003
+  country: United States of America
   kind: shipping

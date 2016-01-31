@@ -1,27 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  id: 1
-  first_name: MyString
-  last_name: MyString
-  role: MyString
-  email: email1@example.com
-
-two:
-  id: 2
-  first_name: MyString
-  last_name: MyString
-  role: MyString
-  email: email2@example.com
-
-admin:
-  first_name: Joe
-  last_name: Blow
+david:
+  first_name: David
+  last_name: Bowie
   role: admin
-  email: joe@example.com
+  email: ziggy@mars-spiders.com
 
-valid:
-  first_name: Elvis
-  last_name: Presley
+iggy:
+  first_name: Iggy
+  last_name: Pop
+  role: ''
+  email: iggy@stooges.com
+
+lou:
+  first_name: Lou
+  last_name: Reed
   role: admin
-  email: elvis@graceland.org
+  email: lou@underground.org

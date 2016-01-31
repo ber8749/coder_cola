@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 1
+davids:
+  user: david
   status: shipped
 
-two:
-  user_id: 1
+iggys:
+  user: iggy
   status: pending
 
-three:
-  user: admin
+lous:
+  user: lou
   status: shipped

@@ -4,8 +4,8 @@ class AddressesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
-    sign_in users(:admin)
-    @address = addresses(:one)
+    sign_in users(:david)
+    @address = addresses(:davids_shipping)
   end
 
   test 'should get index' do

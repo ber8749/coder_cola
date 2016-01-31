@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test 'valid user' do
-    assert users(:valid).valid?, true
+    assert users(:david).valid?, true
   end
 
   test 'full name' do
@@ -10,10 +10,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'is admin?' do
-    assert users(:admin).admin?, true
+    assert users(:david).admin?, true
   end
 
   test 'shipping address' do
-    assert_equal addresses(:one), users(:one).shipping_address
+    assert_equal addresses(:davids_shipping), users(:david).shipping_address
   end
 end

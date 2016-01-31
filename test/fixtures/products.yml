@@ -1,15 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
-  price: 1
-
-two:
-  name: MyString
-  description: MyString
-  price: 2
-
 coder_cola:
   name: Coder Cola Case
   description: 24 cans of Coder Cola
