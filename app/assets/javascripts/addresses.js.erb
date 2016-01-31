@@ -8,7 +8,6 @@ $(document).ready(function() {
         var states = countryStates($(this).val());
         addressState.empty();
         $.each(states, function(index, value) {
-          console.log(value);
           addressState.append('<option>' + value + '</option>');
         });
       });
@@ -17,7 +16,7 @@ $(document).ready(function() {
 function countryStates(country) {
   var countries = <%= COUNTRIES.to_json %>;
   var states = [];
-  for(var s in countries[country]) {
+  for(s in countries[country]) {
     states.push(countries[country][s]['name']);
   }
   return states;
